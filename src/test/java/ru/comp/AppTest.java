@@ -8,6 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 import ru.comp.Pages.Incoming;
 import ru.comp.Pages.NewLetter;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
 /**
  * Created by Viktor on 19.03.2017.
  */
@@ -45,16 +49,21 @@ public class AppTest {
     }
 
     @Test
-    public void test1() throws InterruptedException {
-        driver.get("http://mail.ru");
+    @Parameters({"filePath", "site", "login", "password", "destinationEmail"})
+    public void test1(String filePath,
+                      String site,
+                      String login,
+                      String password,
+                      String destinationEmail) throws InterruptedException, AWTException {
+        driver.get(site);
         try{
-            homepage.getLoginInputField().sendKeys("luisfigo_10");
+            homepage.getLoginInputField().sendKeys(login);
         }
         catch(NoSuchElementException e){
             System.out.println("Не найдено поле ввода логина");
         }
         try{
-            homepage.getPasswordInputField().sendKeys("realmadrid");
+            homepage.getPasswordInputField().sendKeys(password);
         }
         catch(NoSuchElementException e){
             System.out.println("Не найдено поле ввода пароля");
@@ -68,8 +77,28 @@ public class AppTest {
 
         incoming.getWriteLetterButton().click();
 
-        // newLetter.getAttachFileButton().click();
+        newLetter.getDestinationEmailField().sendKeys(destinationEmail);
+        newLetter.getDestinationEmailField().sendKeys(" ");
+        Thread.sleep(1000);
+        newLetter.getSubjectField().sendKeys("Проверка связи");
+        Thread.sleep(1000);
+        newLetter.getAttachFileButton().click();
+        Thread.sleep(1000);
+        StringSelection s = new StringSelection(filePath);
+        //заносим строку с путем до файла в буфер обмена
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
 
+        //Создаем объект класса Robot для генерациинативных событий ввода
+        Robot robot = new Robot();
+
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
         Thread.sleep(2000);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        Thread.sleep(2000);
+        newLetter.getSendButton().click();
     }
 }

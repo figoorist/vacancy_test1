@@ -24,4 +24,23 @@ public class NewLetter extends Page {
                 .until(ExpectedConditions
                         .presenceOfElementLocated(By.cssSelector("#PH_logoutLink")));
     }
+
+    public WebElement getDestinationEmailField(){
+        return (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions
+                        .presenceOfElementLocated(By.cssSelector("textarea.js-input:nth-child(6)")));
+
+    }
+
+    public WebElement getSubjectField(){
+        return (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions
+                        .presenceOfElementLocated(By.cssSelector(".compose-head__row_nohr > div:nth-child(2) > div:nth-child(1) > input:nth-child(1)")));
+    }
+
+    public WebElement getSendButton(){
+        return (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions
+                        .presenceOfElementLocated(By.cssSelector("div.b-toolbar__item_:nth-child(1)")));
+    }
 }
