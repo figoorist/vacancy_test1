@@ -5,6 +5,6 @@ Vacancy test 1
 Selenium Webdriver, TestNG
 Реализована работа с драйвером браузера Mozilla Firefox (Не выше версии 46.0), запускался на 46.0.
 
-Тест запускается файлом testng.xml в IntellijIDEA
+Тест запускается файлом testng.xml в IntellijIDEA. Почтовый сервис: Mail.Ru
 
 Путь до прикрепляемого файла и все остальные параметры задаются в файле testng.xml 
