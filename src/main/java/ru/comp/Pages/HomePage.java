@@ -27,7 +27,7 @@ public class HomePage extends Page {
      */
     public WebElement getLoginInputField(){
         return (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("mailbox__login")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("mailbox:login")));
     }
 
     /**
@@ -36,10 +36,10 @@ public class HomePage extends Page {
      */
     public WebElement getPasswordInputField() {
         return (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("mailbox__password")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("mailbox:password")));
     }
 
     /** public свойство - кнопка входа */
-    @FindBy(how = How.ID, using = "mailbox__auth__button")
+    @FindBy(how = How.ID, using = "mailbox:submit")
     public WebElement submitButton;
 }

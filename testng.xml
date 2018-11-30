@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Default Suite">
     <test name="vacancy_test1">
-        <parameter name="filePath" value="D:\HW.class"/>
+        <parameter name="filePath" value="/home/viktor/hw.java"/>
         <parameter name="site" value="http://mail.ru"/>
         <parameter name="login" value="luisfigo_10"/>
         <parameter name="password" value="realmadrid"/>

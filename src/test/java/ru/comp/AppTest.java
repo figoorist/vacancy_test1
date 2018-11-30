@@ -1,7 +1,7 @@
 package ru.comp;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import ru.comp.Pages.HomePage;
 import org.testng.annotations.*;
 import org.openqa.selenium.support.PageFactory;
@@ -29,7 +29,7 @@ public class AppTest {
      */
     @BeforeTest
     public void init() throws InterruptedException {
-        driver = new FirefoxDriver(); //создаём драйвер Firefox
+        driver = new ChromeDriver(); //создаём драйвер Firefox
         //используем фабрику PageFactory для создания объекта страницы
         homepage = PageFactory.initElements(driver,HomePage.class);
         //используем фабрику PageFactory для создания объекта страницы
