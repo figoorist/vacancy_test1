@@ -24,12 +24,12 @@ public class AppTest {
     NewLetter newLetter;
 
     /**
-     * Метод инициализации тестового стенда, браузер Mozilla Firefox 46
+     * Метод инициализации тестового стенда, браузер Chrome
      * @throws InterruptedException
      */
     @BeforeTest
     public void init() throws InterruptedException {
-        driver = new ChromeDriver(); //создаём драйвер Firefox
+        driver = new ChromeDriver(); //создаём драйвер Chrome
         //используем фабрику PageFactory для создания объекта страницы
         homepage = PageFactory.initElements(driver,HomePage.class);
         //используем фабрику PageFactory для создания объекта страницы
