@@ -1,6 +1,8 @@
 # vacancy_test1
 Vacancy test 1
 
+Сценарий: отправить письмо с прикрепленным файлом с помощью почтового сервиса mail.ru
+
 Проект Maven
 Selenium Webdriver, TestNG
 Реализована работа с драйвером браузера Chrome
